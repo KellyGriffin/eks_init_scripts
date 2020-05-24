@@ -33,6 +33,13 @@ echo "--------Upgrading AWS CLI--------"
 pip install awscli --upgrade
 echo 'export PATH=$HOME/.local/bin:$PATH' >> ~/.bashrc
 
+echo "--------Install Helm--------"
+curl -sSL https://raw.githubusercontent.com/helm/helm/master/scripts/get-helm-3 | bash
+
+echo "--------Adding repos to Helm-------"
+helm repo add stable https://kubernetes-charts.storage.googleapis.com/
+helm repo add bitnami https://charts.bitnami.com/bitnami
+
 echo "--------Verification--------"
 echo "kubectl"
 kubectl version --short --client
